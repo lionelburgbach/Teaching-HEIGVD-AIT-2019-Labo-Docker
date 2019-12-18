@@ -8,7 +8,7 @@ Non, nous ne pouvons pas utiliser la solution actuelle pour de la production. En
 
 ### M2 :
 
-Actuellement
+Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'avoir créer, l'ajouter dans le fichier de configuration du loadbalancer.
 
 ### M3 :
 
