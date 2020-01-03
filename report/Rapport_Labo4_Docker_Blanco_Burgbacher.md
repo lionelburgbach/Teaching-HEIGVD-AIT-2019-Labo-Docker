@@ -8,7 +8,7 @@ Non, nous ne pouvons pas utiliser la solution actuelle pour de la production. En
 
 ### M2 :
 
-Actuellement
+Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'avoir créer, l'ajouter dans le fichier de configuration du loadbalancer.
 
 ### M3 :
 
@@ -19,3 +19,34 @@ Pour ajouter un nouveau "webapp container", nous allons devoir effectuer différ
 ### M5 : 
 
 ### M6 :
+
+### Installation 
+
+Après avoir fait docker-compose up --build on a bien le HAProxy qui se lance et les deux serveurs. On peut vérifier ceci grâce à docker ps.
+
+<img height="75" src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_Installation_docker_ps.png"  />
+
+Et ensuite docker network ls 
+
+<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_Installation_docker_network.png"  />
+
+
+
+Ensuite si on se rend à l'adresse 192.168.42.42, on a bien la "HTTP request".
+
+<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_192.168.42.42.png"  />
+
+
+
+#### **Deliverables 0**
+
+Screenshot de l'adresse  `http://192.168.42.42:1936`
+
+<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_HAProxy.png"  />
+
+L'url de notre repository est le suivant : https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker
+
+## Task 1
+
+
+
