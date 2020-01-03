@@ -1,6 +1,6 @@
 # 	Lab 04 - Docker 
 
-## Task 0 
+## Task 0 - Identify issues and install the tools
 
 ### M1 : 
 
@@ -46,7 +46,36 @@ Screenshot de l'adresse  `http://192.168.42.42:1936`
 
 L'url de notre repository est le suivant : https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker
 
-## Task 1
+## Task 1 - Add a process supervisor to run several processes
 
+On "installe" le système init s6 en modifiant le Docker. Ensuite on crée nos images (imgha et imgweb), grâce à la commande `docker build -t <imageName>  .` . On les lance et on vérifie avec `docker ps`
 
+<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_1_docker_ps.png"  />
 
+Ensuite on configure le s6 comme notre processus principal avec la commande `ENTRYPOINT ["/init"]` qu'on ajoute au docker. On voit qu'à l'adresse **192.168.42.42** il n'y a plus rien car on a remplacé notre application par le superviseur. On va donc devoir créer un script pour s6, pour que notre application soit relancé automatiquement. On crée donc un dossier service dans lequel on va mettre notre "run" script. On doit modifier son "hashbang" et retourner modifier les Docker du ha et de webapp pour que le script soit copier dans l'image docker. Après avoir fait cela, on relance notre docker compose. 
+
+#### **Deliverables 1**
+
+**Screenshot de l'adresse**  `http://192.168.42.42:1936`
+
+<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_1_HAProxy.png"  />
+
+**Describe your difficulties for this task and your understanding of what is happening during this task.**
+
+Nous n'avons pas eu de difficultés particulière pour cette partie du laboratoire. Nous avons eu un problème avec les commandes proposé pour la copie mais nous avons tous simplement fait la copie à la main et un chmod sur la copie.
+
+Nous avons compris que par principe docker ne permet d'avoir qu'un seul processus par container. Ce qui implique que si aucun processus ne tourne sur le container s'arrête automatiquement. Le problème c'est que les applications serveurs comme Apache ou NodeJs (dans notre cas) vont lancer des processus en background (des deamons) et pour docker c'est comme s'il n'y avait pas de processus qui tournait, il va donc arrêter le container.
+
+Pour résoudre ce problème nous allons devoir faire en sorte que notre processus de premier plan ne crée pas un fork en arrière plan (dans un deamon). Nous allons pour cela devoir utiliser un **init system**. Un **init system** permet de gérer les processus et les deamons. Pour ce laboratoire, nous allons utiliser s6 qui est léger et assez facile à utiliser. C'est aussi ce programme qui va nous permettre d'avoir plusieurs processus dans un seul container.
+
+Un des points soulevé dans la donné et que cela ne respecte plus vraiment la philosophie de docker. La réponse de s6 à cette "accusation" est qu'il ne sont pas d’accord. Selon eux un container ne dois pas avoir qu'un seul processus mais qu'une seule fonction (Exemple: un service de chat) et que fonction s'arrête le container doit faire pareil. 
+
+## Task 2 - Add a tool to manage membership in the web server cluster
+
+Dans cette partie, on suit les différentes étapes pour installer Serf (outil qui va nous permettre d'ajouter et de supprimer dynamiquement nos web server). Création des différents dossier et des script de lancement. Modification des Dockerfile et exposition du port Serf. 
+
+J'ai lancé directement avec le docker-compose je n'ai donc pas eu les problèmes pour ping les machines. Les autres commandes  ( docker run -d -p 80:80 -p 1936:1936 -p 9999:9999 --network brige --link s1 --link s2 --name ha <imageName> ET docker run -d --network heig --name s1 <imageName>) n'ont malheureusement pas fonctionné (problème avec le network bridge).
+
+**Deliverables 2**
+
+Grâce au commandes suivantes : `docker logs ha > logHa.txt` , `docker logs s1 > logS1.txt` et `docker logs s2 > logS2.txt`, on peut créer les différents fichier de logs de nos container.
