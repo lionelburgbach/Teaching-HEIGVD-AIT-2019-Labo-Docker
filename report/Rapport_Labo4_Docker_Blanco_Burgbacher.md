@@ -78,4 +78,23 @@ J'ai lancé directement avec le docker-compose je n'ai donc pas eu les problème
 
 **Deliverables 2**
 
-Grâce au commandes suivantes : `docker logs ha > logHa.txt` , `docker logs s1 > logS1.txt` et `docker logs s2 > logS2.txt`, on peut créer les différents fichier de logs de nos container.
+1. ##### Logs
+
+   Grâce au commandes suivantes : `docker logs ha > logHa.txt` , `docker logs s1 > logS1.txt` et `docker logs s2 > logS2.txt`, on peut créer les différents fichier de logs de nos container.
+   Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task2](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_2)
+
+2. ##### Existing problem
+
+   <p style='color:red'>**TROUVER LE PROBLEME** </p>
+
+3. ##### How Serf is working 
+
+## Task 3 - React to membership changes
+
+
+
+## Task 4 - Use a template engine to easily generate configuration files
+
+## Task 5 - Generate a new load balancer configuration when membership changes
+
+## Task 6 - Make the load balancer automatically reload the new configuration
