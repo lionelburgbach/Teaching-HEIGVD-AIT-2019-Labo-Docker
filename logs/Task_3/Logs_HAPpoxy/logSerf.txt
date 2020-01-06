@@ -1,0 +1,5 @@
+Member join script triggered
+Member join event received from: 8f3a92fcf7c4 with role balancer
+Member join event received from: 13e06d638723 with role backend
+Member join event received from: 90f9b04ac83e with role backend
+

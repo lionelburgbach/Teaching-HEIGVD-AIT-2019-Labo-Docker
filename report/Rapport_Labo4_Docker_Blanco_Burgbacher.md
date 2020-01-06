@@ -113,13 +113,13 @@ Nous avons encore eu des pour run les containeur avec les commandes docker, nous
 
    Grâce aux même commande que pour le "delivrables 2", on peut récupérer les logs de ha, s1 et s2.
 
-   Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task3](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3)
+   Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task3 - Docker](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3)
 
-2. Logs de HAProxy
+2. Logs de Serf
 
-   Pour récupérer les logs de HAProxy, on lance un shell à l'intérieur du container et on fait la commande : cat /var/log/serf.log
+   Pour récupérer les logs de Serf on lance un shell à l'intérieur du container et on fait la commande : cat /var/log/serf.log
 
-   Vous pouvez retrouver les logs de HAProxy ici : 
+   Vous pouvez retrouver les logs de Serf ici :  [Logs - Task3 - Serf](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3)
 
 ## Task 4 - Use a template engine to easily generate configuration files
 
