@@ -1,5 +1,15 @@
 # 	Lab 04 - Docker 
 
+## Introduction
+
+<span style='color:red'>labo 3 / dynamique / facilité etc...</span>
+
+## Table des matières 
+
+[TOC]
+
+
+
 ## Task 0 - Identify issues and install the tools
 
 ### M1 : 
@@ -74,27 +84,51 @@ Un des points soulevé dans la donné et que cela ne respecte plus vraiment la p
 
 Dans cette partie, on suit les différentes étapes pour installer Serf (outil qui va nous permettre d'ajouter et de supprimer dynamiquement nos web server). Création des différents dossier et des script de lancement. Modification des Dockerfile et exposition du port Serf. 
 
-J'ai lancé directement avec le docker-compose je n'ai donc pas eu les problèmes pour ping les machines. Les autres commandes  ( docker run -d -p 80:80 -p 1936:1936 -p 9999:9999 --network brige --link s1 --link s2 --name ha <imageName> ET docker run -d --network heig --name s1 <imageName>) n'ont malheureusement pas fonctionné (problème avec le network bridge).
+Nous avons lancé directement avec le docker-compose nous n'avons donc pas eu les problèmes pour ping les machines. Les autres commandes  ( docker run -d -p 80:80 -p 1936:1936 -p 9999:9999 --network brige --link s1 --link s2 --name ha <imageName> ET docker run -d --network heig --name s1 <imageName>) n'ont malheureusement pas fonctionné (problème avec le network bridge).
 
-**Deliverables 2**
+##### **Deliverables 2**
 
 1. ##### Logs
 
-   Grâce au commandes suivantes : `docker logs ha > logHa.txt` , `docker logs s1 > logS1.txt` et `docker logs s2 > logS2.txt`, on peut créer les différents fichier de logs de nos container.
+   Grâce aux commandes suivantes : `docker logs ha > logHa.txt` , `docker logs s1 > logS1.txt` et `docker logs s2 > logS2.txt`, on peut créer les différents fichier de logs de nos container.
    Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task2](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_2)
 
 2. ##### Existing problem
 
-   <p style='color:red'>**TROUVER LE PROBLEME** </p>
+   Nous n'avons pas eu le problème car nous avons utilisé docker-compose (qui lance le HAProxy en premier) comme cité précedement mais si on avait pu lancé les choses les unes après les autres (dans un autre ordre avec s1 en premier par exemple), on aurait eu un problème si on avait lancé les serveur web app avant le HAProxy. En effet, on crée un cluster de machine mais dans notre cas, on lie les web apps au ha, donc s'il n'existe pas on va avoir une erreur. 
 
 3. ##### How Serf is working 
 
+   <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+
 ## Task 3 - React to membership changes
 
+Dans cette partie, on crée les scripts qui vont permettre aux membres (les serveurs web app) de se connecter. Après avoir créé les scripts on modifie le Dockerfile de ha pour copier les scripts dans notre docker.
 
+Nous avons encore eu des pour run les containeur avec les commandes docker, nous avons de nouveau du utiliser docker-compose.
+
+##### **Deliverables 3**
+
+1. Logs de docker
+
+   Grâce aux même commande que pour le "delivrables 2", on peut récupérer les logs de ha, s1 et s2.
+
+   Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task3](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3)
+
+2. Logs de HAProxy
+
+   Pour récupérer les logs de HAProxy, on lance un shell à l'intérieur du container et on fait la commande : cat /var/log/serf.log
+
+   Vous pouvez retrouver les logs de HAProxy ici : 
 
 ## Task 4 - Use a template engine to easily generate configuration files
 
 ## Task 5 - Generate a new load balancer configuration when membership changes
 
 ## Task 6 - Make the load balancer automatically reload the new configuration
+
+
+
+## Difficultés 
+
+## Conclusion
