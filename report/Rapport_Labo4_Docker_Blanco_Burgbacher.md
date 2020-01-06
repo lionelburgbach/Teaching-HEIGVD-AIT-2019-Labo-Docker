@@ -86,7 +86,7 @@ Dans cette partie, on suit les différentes étapes pour installer Serf (outil q
 
 Nous avons lancé directement avec le docker-compose nous n'avons donc pas eu les problèmes pour ping les machines. Les autres commandes  ( docker run -d -p 80:80 -p 1936:1936 -p 9999:9999 --network brige --link s1 --link s2 --name ha <imageName> ET docker run -d --network heig --name s1 <imageName>) n'ont malheureusement pas fonctionné (problème avec le network bridge).
 
-##### **Deliverables 2**
+#### **Deliverables 2**
 
 1. ##### Logs
 
@@ -107,19 +107,21 @@ Dans cette partie, on crée les scripts qui vont permettre aux membres (les serv
 
 Nous avons encore eu des pour run les containeur avec les commandes docker, nous avons de nouveau du utiliser docker-compose.
 
-##### **Deliverables 3**
+#### **Deliverables 3**
 
-1. Logs de docker
+1. ##### Logs de docker
 
    Grâce aux même commande que pour le "delivrables 2", on peut récupérer les logs de ha, s1 et s2.
 
-   Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task3 - Docker](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3)
+   Vous pouvez retrouver les différents fichiers de logs ici : [Logs - Task3 - Docker](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3/Logs_Docker)
 
-2. Logs de Serf
+2. ##### Logs de Serf
 
    Pour récupérer les logs de Serf on lance un shell à l'intérieur du container et on fait la commande : cat /var/log/serf.log
 
-   Vous pouvez retrouver les logs de Serf ici :  [Logs - Task3 - Serf](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3)
+   Vous pouvez retrouver les logs de Serf ici :  [Logs - Task3 - Serf](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_3/Logs_Serf)
+
+   
 
 ## Task 4 - Use a template engine to easily generate configuration files
 
