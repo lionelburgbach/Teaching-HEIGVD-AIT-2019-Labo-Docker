@@ -42,7 +42,7 @@ Et ensuite docker network ls
 
 Ensuite si on se rend à l'adresse 192.168.42.42, on a bien la "HTTP request".
 
-<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_192.168.42.42.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_192.168.42.42.png"  />
 
 
 
