@@ -109,6 +109,14 @@ backend nodes
     server s1 ${WEBAPP_1_IP}:3000 check
     server s2 ${WEBAPP_2_IP}:3000 check
 
+# HANDLEBARS START 
+
+{{#each addresses}}
+server {{ host }} {{ ip }}:3000 check
+{{/each}}
+
+# HANDLEBARS STOP
+
 
 # Other links you will need later for this lab
 #

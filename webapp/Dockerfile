@@ -1,7 +1,6 @@
 # The base image is one of the offical one
 FROM node:latest
 
-# TODO: [GEN] Replace with your name and email
 MAINTAINER Lionel Burgbacher <lionel.burgbacher@heig-vd.ch> # Guillaume Blanco <guillaume.blanco@heig-vd.ch>
 
 # Install the required tools to run our webapp and some utils

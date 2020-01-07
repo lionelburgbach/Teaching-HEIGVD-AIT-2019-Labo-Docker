@@ -2,13 +2,11 @@
 
 ## Introduction
 
-<span style='color:red'>labo 3 / dynamique / facilité etc...</span>
+Dans ce laboratoire nous allons faire en sorte d'améliorer ce que nous avions fait dans le laboratoire numéro 3. En effet, dans le laboratoire 3, nous avions déjà un loadbalancer qui distribuait le traffic entre deux applications web. Nous allons, maintenant, faire en sorte que l'ajout (et la suppression) d'une nouvelle application web se fasse dynamiquement. Que nous n'ayons pas à aller changer la configuration du loadbalancer manuellement. Pour cela nous allons faire en sorte que les machines, le loadbalancer et les web apps puissent "communiquer" entre elles au travers d'un "gossip protocol" qui va permettre de savoir qui est disponible et qui vient se rajouter au cluster de machine. Le but est que cela soit le plus dynamique et le plus facile possible.
 
 ## Table des matières 
 
 [TOC]
-
-
 
 ## Task 0 - Identify issues and install the tools
 
@@ -99,7 +97,11 @@ Nous avons lancé directement avec le docker-compose nous n'avons donc pas eu le
 
 3. ##### How Serf is working 
 
-   <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+   Le but de Serf est de créer un cluster de machine qui peuvent communiquer entre elles et avoir conscience les unes des autres. Pour cela, il se base sur un gossip protocol (protocole de ragots). Il va maintenir une liste des "membres" de sont cluster et faire en sorte qu'ils s'annoncent lorsque ils "arrivent" ou "partent". Dans notre cas le loadbalancer aura la liste des web servers qui sont online ou offline. Serf détecte aussi si un des nœuds de sont  cluster et va notifier le reste du cluster, il permet aussi de lancer des scripts spécifique pour ces cas et essayera même de voir si le nœuds et encore défaillant en essayant de s'y reconnecter (source : [ici](https://www.serf.io/intro/index.html)) .
+   
+   [ici](https://www.serf.io/docs/internals/gossip.html) on peut trouver des informations plus poussée des principes sur lesquels il se base.
+   
+   En se baladant sur internet, on peut trouver pas mal d'outils permettant de faire la même chose que Serf. Ici : [Alternative à Serf](https://stackshare.io/serf/alternatives) vous pourrez retrouver différentes alternatives à Serf. Les plus populaires sont Consul et Zookeeper. D’ailleurs Serf eux même parle de leur concurrent ([Ici](https://www.serf.io/intro/vs-other-sw.html)) .
 
 ## Task 3 - React to membership changes
 
@@ -125,7 +127,20 @@ Nous avons encore eu des pour run les containeur avec les commandes docker, nous
 
 ## Task 4 - Use a template engine to easily generate configuration files
 
+Dans cette étape, on crée un template pour ajouter dynamiquement de nouveaux serveurs sans avoir à toucher à la configuration. On modifie le Dockerfile pour installer NodeJS et un outil pour extraire l'archive NodeJS (xz-utils). Ensuite on crée un template tous simple dans notre configuration et on fait en sorte qu'il soit copier dans le container.
+
+#### **Deliverables 4**
+
+1. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+2. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+3. METTRE LIEN VERS LES LOGs
+4. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+
 ## Task 5 - Generate a new load balancer configuration when membership changes
+
+#### **Deliverables 5**
+
+Cette fois on a pu démarrer indépendamment les serveurs et voir dans les logs qu'ils s'ajoutaient au fur et à mesure. Par contre si on les démarre comme ça, on a y a plus accès depuis le navigateur...
 
 ## Task 6 - Make the load balancer automatically reload the new configuration
 
