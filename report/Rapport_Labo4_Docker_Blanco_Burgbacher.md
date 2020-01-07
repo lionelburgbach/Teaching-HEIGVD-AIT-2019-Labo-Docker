@@ -181,19 +181,19 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
    **Ensuite on lance un troisième serveur comme on peut le voir sur ce screen.** 
 
-   ![image-20200107225411741](/home/guillaume/.config/Typora/typora-user-images/image-20200107225411741.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_console_3Serv.png"  />
 
    
 
    **Et on peut voir que de nouveau il s'affiche bien sur la "page de stats" du HAProxy.**
 
-   ![image-20200107225521527](/home/guillaume/.config/Typora/typora-user-images/image-20200107225521527.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_3Serv.png"  />
 
    
 
    **On peut voir que nos serveurs fonctionne bien sur le screen suivant.** 
 
-   ![image-20200107225645508](/home/guillaume/.config/Typora/typora-user-images/image-20200107225645508.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_serv_fonctionne.png"  />
 
    
 
@@ -201,15 +201,15 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
    Ensuite nous avons essayé de stopper un serveur puis de le supprimer (on peut voir sur les 2 screens suivant que ça a fonctionné mais il était jaune lorsqu'on a fait stop et on disparu avec le rm. Nous pensons plutôt que c'est une question de latence du HAProxy).
 
-   ![image-20200107225841089](/home/guillaume/.config/Typora/typora-user-images/image-20200107225841089.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6After_stopS2.png"  />
 
-   ![image-20200107230002286](/home/guillaume/.config/Typora/typora-user-images/image-20200107230002286.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_after_rm_s2.png"  />
 
    
 
    Finalement un screen du docker ps (une fois après avoir supprimer le serveur deux et en ayant essayé de le rajouter une nouvelle fois).
 
-   ![image-20200107230132128](/home/guillaume/.config/Typora/typora-user-images/image-20200107230132128.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_dockerPs.png"  />
 
 
 
