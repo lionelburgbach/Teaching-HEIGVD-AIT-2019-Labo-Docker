@@ -32,11 +32,11 @@ Pour ajouter un nouveau "webapp container", nous allons devoir effectuer différ
 
 Après avoir fait docker-compose up --build on a bien le HAProxy qui se lance et les deux serveurs. On peut vérifier ceci grâce à docker ps.
 
-<img height="75" src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_Installation_docker_ps.png"  />
+<img height="75" src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_Installation_docker_ps.png"  />
 
 Et ensuite docker network ls 
 
-<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_Installation_docker_network.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_Installation_docker_network.png"  />
 
 
 
@@ -50,7 +50,7 @@ Ensuite si on se rend à l'adresse 192.168.42.42, on a bien la "HTTP request".
 
 1. Screenshot de l'adresse  `http://192.168.42.42:1936`
 
-<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_HAProxy.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_HAProxy.png"  />
 
 2. L'url de notre repository est le suivant : https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker
 
@@ -58,7 +58,7 @@ Ensuite si on se rend à l'adresse 192.168.42.42, on a bien la "HTTP request".
 
 On "installe" le système init s6 en modifiant le Docker. Ensuite on crée nos images (imgha et imgweb), grâce à la commande `docker build -t <imageName>  .` . On les lance et on vérifie avec `docker ps`
 
-<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_1_docker_ps.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_1_docker_ps.png"  />
 
 Ensuite on configure le s6 comme notre processus principal avec la commande `ENTRYPOINT ["/init"]` qu'on ajoute au docker. On voit qu'à l'adresse **192.168.42.42** il n'y a plus rien car on a remplacé notre application par le superviseur. On va donc devoir créer un script pour s6, pour que notre application soit relancé automatiquement. On crée donc un dossier service dans lequel on va mettre notre "run" script. On doit modifier son "hashbang" et retourner modifier les Docker du ha et de webapp pour que le script soit copier dans l'image docker. Après avoir fait cela, on relance notre docker compose. 
 
