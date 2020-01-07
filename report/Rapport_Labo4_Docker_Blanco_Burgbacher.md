@@ -22,11 +22,11 @@ Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'
 
 Pour ajouter un nouveau "webapp container", nous allons devoir effectuer différentes opérations. Nous allons commencer par créer un script sur le loadbalancer qui écoutera en continue, pour pouvoir ajouter les différents serveur qui "s'annonceront". Ensuite, lorsque nous ajoutons un nouveau "webapp container", il nous faudra faire en sorte que ce dernier "s'annonce" auprès du loadbalancer. Pour faire cela, nous allons mettre en place un "gossip protocol" qui permet une certaine "communication" entre les serveurs et le loadbalancer. Si le loadbalancer venait à tomber, nous pourrions ne référencer qu'un seul des serveurs et les autres "s'auto-référencerait" automatiquement auprès du nouveau loadbalancer (Serf est une application permettant de mettre en place cela).
 
-### M4 :
+### M4 : <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
 
-### M5 : 
+### M5 : <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
 
-### M6 :
+### M6 : <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
 
 ### Installation 
 
@@ -48,11 +48,11 @@ Ensuite si on se rend à l'adresse 192.168.42.42, on a bien la "HTTP request".
 
 #### **Deliverables 0**
 
-Screenshot de l'adresse  `http://192.168.42.42:1936`
+1. Screenshot de l'adresse  `http://192.168.42.42:1936`
 
 <img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_0_HAProxy.png"  />
 
-L'url de notre repository est le suivant : https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker
+2. L'url de notre repository est le suivant : https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker
 
 ## Task 1 - Add a process supervisor to run several processes
 
@@ -64,11 +64,11 @@ Ensuite on configure le s6 comme notre processus principal avec la commande `ENT
 
 #### **Deliverables 1**
 
-**Screenshot de l'adresse**  `http://192.168.42.42:1936`
+**1. Screenshot de l'adresse**  `http://192.168.42.42:1936`
 
 <img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_1_HAProxy.png"  />
 
-**Describe your difficulties for this task and your understanding of what is happening during this task.**
+**2. Describe your difficulties for this task and your understanding of what is happening during this task.**
 
 Nous n'avons pas eu de difficultés particulière pour cette partie du laboratoire. Nous avons eu un problème avec les commandes proposé pour la copie mais nous avons tous simplement fait la copie à la main et un chmod sur la copie.
 
@@ -132,19 +132,42 @@ Dans cette étape, on crée un template pour ajouter dynamiquement de nouveaux s
 #### **Deliverables 4**
 
 1. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+
 2. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
-3. METTRE LIEN VERS LES LOGs
+
+3. **Logs**
+
+   Vous pourrez trouver les différents log demandé à l'étape 3 (logs des configuration ha, s1 et s2 / docker ps & docker inspect) au lieu suivant : [Logs - Task4](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_4)
+
 4. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
 
 ## Task 5 - Generate a new load balancer configuration when membership changes
 
+Dans cette partie on va modifier nos scripts pour que la configuration du HAProxy soit modifié dynamiquement à chaque fois qu'une web app rejoint ou quitte le cluster.
+
+Cette fois on a pu démarrer indépendamment les serveurs et voir dans les logs qu'ils s'ajoutaient au fur et à mesure. Par contre si on les démarre comme ça et qu'on va regarder la configuration depuis le navigateur, ils sont soit considéré comme "done" ou alors il ne s'affiche même pas.
+
 #### **Deliverables 5**
 
-Cette fois on a pu démarrer indépendamment les serveurs et voir dans les logs qu'ils s'ajoutaient au fur et à mesure. Par contre si on les démarre comme ça, on a y a plus accès depuis le navigateur...
+1. **Logs configuration & docker**
+
+   Vous trouverez respectivement les logs des configurations [ici](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_5/LogCFG) et les logs docker (ps et inspect) [ici](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_5/LogDocker)
+
+2. **Liste des nœuds** 
+
+   Vous trouvez la liste des nœuds [ici](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/logs/Task_5/ListOfNode)
+
+3. **Liste des nœuds, configuration HA & docker ps après arrêt de S1** 
+
+   Vous trouverez la liste des nœuds, la configuration du HAProxy ainsi que le docker ps après avoir arrêté le serveur S1 [ici](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_5/AfterStopS1)
 
 ## Task 6 - Make the load balancer automatically reload the new configuration
 
+Finalement dans cette étape, on va modifier le script de "lancement" de notre HAProxy pour que ce dernier garde toujours la configuration à jour.
 
+#### **Deliverables 6**
+
+1. 
 
 ## Difficultés 
 
