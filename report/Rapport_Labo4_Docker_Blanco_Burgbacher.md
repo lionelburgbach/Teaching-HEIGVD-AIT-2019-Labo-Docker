@@ -66,7 +66,7 @@ Ensuite on configure le s6 comme notre processus principal avec la commande `ENT
 
 **1. Screenshot de l'adresse**  `http://192.168.42.42:1936`
 
-<img src="/home/guillaume/Bureau/AIT/Labo4/Teaching-HEIGVD-AIT-2019-Labo-Docker/report/Images/Task_1_HAProxy.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_1_HAProxy.png"  />
 
 **2. Describe your difficulties for this task and your understanding of what is happening during this task.**
 
@@ -171,13 +171,11 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
    Sur ce premier screen on peut voir que l'on lance le proxy et les deux premiers serveurs.
 
-   ![image-20200107224858029](/home/guillaume/.config/Typora/typora-user-images/image-20200107224858029.png)
-
-   
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_console_2Serv.png"  />
 
    On peut voir sur le screen suivant que les 2 serveurs on été lancé mais ils sont en attente. Nous ne savons pas pourquoi mais il y a un "résidu" des serveurs S1 et S2 en rouge. On peut aussi remarquer que les serveurs que l'on lance maintenant (même si on leur donne un nom avec --name) prennent comme noms le début de leur hash.
 
-   ![image-20200107225231001](/home/guillaume/.config/Typora/typora-user-images/image-20200107225231001.png)
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6HAProxy2Serv.png"  />
 
    
 
