@@ -173,7 +173,7 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
    <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_console_2Serv.png"  />
 
-   On peut voir sur le screen suivant que les 2 serveurs on été lancé mais ils sont en attente. Nous ne savons pas pourquoi mais il y a un "résidu" des serveurs S1 et S2 en rouge. On peut aussi remarquer que les serveurs que l'on lance maintenant (même si on leur donne un nom avec --name) prennent comme noms le début de leur hash.
+   On peut voir sur le screen suivant que les 2 serveurs on été lancé mais ils sont en attente. Nous ne savons pas pourquoi mais il y a un "résidu" des serveurs S1 et S2 en rouge. On peut aussi remarquer que les serveurs que l'on lance maintenant (même si on leur donne un nom avec --name) prennent comme noms le début de leur hash. Les deux serveurs sont en jaune car il y a un petit temps de latence dans le HAProxy.
 
    <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6HAProxy2Serv.png"  />
 
@@ -203,7 +203,7 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
    <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6After_stopS2.png"  />
 
-   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_after_rm_s2.png"  />
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_after_rm_s2.png"  />i
 
    
 
