@@ -12,11 +12,11 @@ Dans ce laboratoire nous allons faire en sorte d'améliorer ce que nous avions f
 
 ### M1 : 
 
-Non, nous ne pouvons pas utiliser la solution actuelle pour de la production. En effet, il y a un "single point of failure", si le loadbalancer venait à "tombé", tout notre système ne pourrait plus fonctionner. De plus, avec la solution actuelle, nous devons changer le fichier de configuration du loadbalancer pour chaque nouveau conteneur ajouté.
+Non, nous ne pouvons pas utiliser la solution actuelle pour de la production. En effet, il y a un "single point of failure", si le loadbalancer venait à "tombé", tout notre système ne pourrait plus fonctionner. De plus, avec la solution actuelle, nous devons changer le fichier de configuration du loadbalancer pour chaque nouveau conteneur ajouté et cela de façon manuel.
 
 ### M2 :
 
-Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'avoir créer, l'ajouter dans le fichier de configuration du loadbalancer.
+Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'avoir créer, l'ajouter dans le fichier de configuration du loadbalancer (haproxy.cfg).
 
 ### M3 :
 
@@ -167,8 +167,64 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
 #### **Deliverables 6**
 
-1. 
+1. **Screenshot du résultat final**
+
+   Sur ce premier screen on peut voir que l'on lance le proxy et les deux premiers serveurs.
+
+   ![image-20200107224858029](/home/guillaume/.config/Typora/typora-user-images/image-20200107224858029.png)
+
+   
+
+   On peut voir sur le screen suivant que les 2 serveurs on été lancé mais ils sont en attente. Nous ne savons pas pourquoi mais il y a un "résidu" des serveurs S1 et S2 en rouge. On peut aussi remarquer que les serveurs que l'on lance maintenant (même si on leur donne un nom avec --name) prennent comme noms le début de leur hash.
+
+   ![image-20200107225231001](/home/guillaume/.config/Typora/typora-user-images/image-20200107225231001.png)
+
+   
+
+   **Ensuite on lance un troisième serveur comme on peut le voir sur ce screen.** 
+
+   ![image-20200107225411741](/home/guillaume/.config/Typora/typora-user-images/image-20200107225411741.png)
+
+   
+
+   **Et on peut voir que de nouveau il s'affiche bien sur la "page de stats" du HAProxy.**
+
+   ![image-20200107225521527](/home/guillaume/.config/Typora/typora-user-images/image-20200107225521527.png)
+
+   
+
+   **On peut voir que nos serveurs fonctionne bien sur le screen suivant.** 
+
+   ![image-20200107225645508](/home/guillaume/.config/Typora/typora-user-images/image-20200107225645508.png)
+
+   
+
+   
+
+   Ensuite nous avons essayé de stopper un serveur puis de le supprimer (on peut voir sur les 2 screens suivant que ça a fonctionné mais il était jaune lorsqu'on a fait stop et on disparu avec le rm. Nous pensons plutôt que c'est une question de latence du HAProxy).
+
+   ![image-20200107225841089](/home/guillaume/.config/Typora/typora-user-images/image-20200107225841089.png)
+
+   ![image-20200107230002286](/home/guillaume/.config/Typora/typora-user-images/image-20200107230002286.png)
+
+   
+
+   Finalement un screen du docker ps (une fois après avoir supprimer le serveur deux et en ayant essayé de le rajouter une nouvelle fois).
+
+   ![image-20200107230132128](/home/guillaume/.config/Typora/typora-user-images/image-20200107230132128.png)
+
+
 
 ## Difficultés 
 
+
+
+Nous avons eu pas mal de difficultés tous le long du projet, dans les premières étapes nous ne pouvions pas lancer les différents conteneurs séparément. Nous étions obligé d'utilisé le docker-compose (même après avoir regardé avec l'assistant). Ce problème c'est réglé au étape 5 & 6 mais nous ne saurions dire pourquoi. Il y a eu aussi quelques éléments dont nous avons pas réussi à trouver la cause comme les "résidu" (des espèces de serveurs fantômes) de serveur dans nos résultats finaux. Les 6 premières questions n'étaient vraiment pas très claires et nous ont aussi posé pas mal de problèmes.
+
+
+
 ## Conclusion
+
+Ce travail était intéressant car nous avons pu voir les différentes étapes qui mène à avoir un loadbalancer permettant de générer dynamiquement des nœuds entrant ou sortant. Nous pensons qu'il aurait été plus intéressant de nous même créer les scripts mais cela aurait demandé beaucoup plus de temps que celui alloué pour ce projet. 
+
+Au final, notre travail fonctionne et nous sommes plutôt satisfait du résultat même si nous n'avons toujours pas trouvé pourquoi il ne nous était pas possible de lancer les containers séparément lors des premières étapes. 
