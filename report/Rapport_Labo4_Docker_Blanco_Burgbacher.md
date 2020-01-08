@@ -12,23 +12,27 @@ Dans ce laboratoire nous allons faire en sorte d'améliorer ce que nous avions f
 
 ## Task 0 - Identify issues and install the tools
 
-### M1 : 
+### M1 : Do you think we can use the current solution for a production environment?
 
 Non, nous ne pouvons pas utiliser la solution actuelle pour de la production. En effet, il y a un "single point of failure", si le loadbalancer venait à "tombé", tout notre système ne pourrait plus fonctionner. De plus, avec la solution actuelle, nous devons changer le fichier de configuration du loadbalancer pour chaque nouveau conteneur ajouté et cela de façon manuel.
 
-### M2 :
+### M2 : Describe what you need to do to add new `webapp` container to the infrastructure.
 
 Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'avoir créer, l'ajouter dans le fichier de configuration du loadbalancer (haproxy.cfg).
 
-### M3 :
+### M3 : Based on your previous answers, you have detected some issues in the current solution. Now propose a better approach at a high level.
 
-Pour ajouter un nouveau "webapp container", nous allons devoir effectuer différentes opérations. Nous allons commencer par créer un script sur le loadbalancer qui écoutera en continue, pour pouvoir ajouter les différents serveur qui "s'annonceront". Ensuite, lorsque nous ajoutons un nouveau "webapp container", il nous faudra faire en sorte que ce dernier "s'annonce" auprès du loadbalancer. Pour faire cela, nous allons mettre en place un "gossip protocol" qui permet une certaine "communication" entre les serveurs et le loadbalancer. Si le loadbalancer venait à tomber, nous pourrions ne référencer qu'un seul des serveurs et les autres "s'auto-référencerait" automatiquement auprès du nouveau loadbalancer (Serf est une application permettant de mettre en place cela).
+Pour ajouter un nouveau "webapp container", nous allons devoir effectuer différentes opérations. Nous allons commencer par créer un script sur le loadbalancer qui écoutera en continue, pour pouvoir ajouter les différents serveur qui "s'annonceront". Ensuite, lorsque nous ajoutons un nouveau "webapp container", il nous faudra faire en sorte que ce dernier "s'annonce" auprès du loadbalancer. Pour faire cela, nous allons mettre en place un "gossip protocol" qui permet une certaine "communication" entre les serveurs et le loadbalancer. Si le loadbalancer venait à tomber, nous pourrions ne référencer qu'un seul des serveurs et les autres "s'auto-référencerait" automatiquement auprès du nouveau loadbalancer (Serf est une application permettant de mettre en place cela). Il faudra aussi faire en sorte que la configuration soit mise à jour automatiquement. Il faudra aussi gérer le fait que les container auront plusieurs processus.
 
-### M4 : <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+### M4 : You probably noticed that the list of web application nodes is hardcoded in the load balancer configuration. How can we manage the web app nodes in a more dynamic fashion?
 
-### M5 : <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
 
-### M6 : <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+
+### M5 : Do you think our current solution is able to run additional management processes beside the main web server / load balancer process in a container? 
+
+
+
+### M6 : What happens if we add more web server nodes? Do you think it is really dynamic? It's far away from being a dynamic configuration. Can you propose a solution to solve this?
 
 ### Installation 
 
@@ -155,7 +159,7 @@ Dans cette étape, on crée un template pour ajouter dynamiquement de nouveaux s
 
    La question n'est pas tout à fait clair, si on parle des 3 fichiers "docker inspect" alors :
 
-   Les résultats des logs du docker inspect ressemble beaucoup à du langange decriptif et en particulier à du JSON. On peut voir qu'il contient un tableau de différents objets (Exemple : le premier objet contient l'ID du container, sa date de création, etc...). On peut voir qu'il contient énormément de champs vide ou NULL, il serait peut-être intéressant de ne pas tous garder (inspect permet de configurer le format de ce qu'il renvoie grâce à `--format`).
+   Les résultats des logs du docker inspect ressemble beaucoup à du langange decriptif et en particulier à du JSON. On peut voir qu'il contient un tableau de différents objets (Exemple : le premier objet contient l'ID du container, sa date de création, etc...). On peut voir qu'il est très grand et qu'il contient énormément de champs vide ou NULL, il serait peut-être intéressant de ne pas tous garder (inspect permet de configurer le format de ce qu'il renvoie grâce à `--format`). 
 
    Si on parle des fichiers de configuration alors :
 
