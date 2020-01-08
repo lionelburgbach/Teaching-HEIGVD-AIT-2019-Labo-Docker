@@ -6,7 +6,9 @@ Dans ce laboratoire nous allons faire en sorte d'améliorer ce que nous avions f
 
 ## Table des matières 
 
-[TOC]
+[toc]
+
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/TOC.png"  />
 
 ## Task 0 - Identify issues and install the tools
 
