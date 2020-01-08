@@ -36,13 +36,15 @@ Pour ajouter un nouveau "webapp container", nous allons devoir effectuer différ
 
 ### M4 : You probably noticed that the list of web application nodes is hardcoded in the load balancer configuration. How can we manage the web app nodes in a more dynamic fashion?
 
-
+En faisant des recherche sur la façon d'ajouter dynamiquement un nouveau noeuds au HAProxy, nous avons trouvé le lien suivant [ici](https://stackoverflow.com/questions/41217315/how-to-add-server-dynamically-in-ha-proxy-backend) qui explique comment ajouter de nouveau noeuds grâce à la **Runtime API**.  Il y a deux lien dans la première réponse concernant le HAProxy et la façon de procéder.
 
 ### M5 : Do you think our current solution is able to run additional management processes beside the main web server / load balancer process in a container? 
 
-
+Dans notre configuration actuelle, il n'est pas possible de faire tourner plusieurs processes car selon la philosophie de docker, nous devons avoir seulement un processes par container. C'est d'ailleurs pour cela que nous avons du ajouter S6 lors de ce laboratoire (voir delivrable 1, réponse 2).
 
 ### M6 : What happens if we add more web server nodes? Do you think it is really dynamic? It's far away from being a dynamic configuration. Can you propose a solution to solve this?
+
+Dans notre configuration actuelle, il faut éteindre le loadbalancer, ajouter le nouveau noeuds puis le redémarrer. Pour résoudre cela il faudrait aussi utilisé, comme dans M4, la **Runtime API**.
 
 ### Installation 
 
