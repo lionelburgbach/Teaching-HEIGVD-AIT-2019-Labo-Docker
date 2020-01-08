@@ -239,7 +239,7 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
 
    <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6After_stopS2.png"  />
 
-   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_after_rm_s2.png"  />i
+   <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_after_rm_s2.png"  />
 
    
 
