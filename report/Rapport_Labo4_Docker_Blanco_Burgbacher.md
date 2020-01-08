@@ -133,7 +133,9 @@ Dans cette étape, on crée un template pour ajouter dynamiquement de nouveaux s
 
 #### **Deliverables 4**
 
-1. Comme nous avons pu le voir dans le cours (chap 3 - slide 49), pour chaque commande RUN, ADD ou COPY utilisées, une nouvelle couche est créé. Il est donc bien plus intéressant de combiner les différentes commandes pour avoir le moins de couches (inutiles) possible. La solution suivante `RUN command 1 && command 2 && command 3` est donc plus intéressante. 
+1. **Amélioration & réduction de la taille de l'image**
+
+   Comme nous avons pu le voir dans le cours (chap 3 - slide 49), pour chaque commande RUN, ADD ou COPY utilisées, une nouvelle couche est créé. Il est donc bien plus intéressant de combiner les différentes commandes pour avoir le moins de couches (inutiles) possible. La solution suivante `RUN command 1 && command 2 && command 3` est donc plus intéressante. Il faudrait aussi essayer de n'avoir qu'un seul dossier à copier comme ça on évite les COPY à répétition.
 
    Nous avons aussi vu qu'il faut supprimer la liste des partages du gestionnaire de partage (celle qui sert à faire update) parce que nous n'allons pas faire d'update dans une image mais simplement changer d'image avec une version plus récente.
 
@@ -141,13 +143,23 @@ Dans cette étape, on crée un template pour ajouter dynamiquement de nouveaux s
 
    Lien à propos du squashing  [ici](https://medium.com/tunaiku-tech/squasing-docker-images-dcd5bea8cf09) & du flattening [ici](https://tuhrig.de/flatten-a-docker-container-or-image/) les deux permettent de réduire la taille d'une image (Exemple : en réduisant le nombre de couche ou en ne gardant pas l'historique des images). `--squash` va faire un nouveau build en une seule couche([source](https://docs.docker.com/engine/reference/commandline/image_build/)).
 
-2. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+2. **Amélioration de l'architecture** 
+
+   Comme cité précédement on pourrait avoir une images de bases et la compléter avec juste ce qu'il nous faut. Essayer de remplir le plus possible cette image et faire attention que ce qu'on rajoute n'est pas déjà dedans. 
 
 3. **Logs**
 
    Vous pourrez trouver les différents log demandé à l'étape 3 (logs des configuration ha, s1 et s2 / docker ps & docker inspect) au lieu suivant : [Logs - Task4](https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/tree/master/logs/Task_4)
 
-4. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+4. **Remarques sur les fichiers logs récupérer précédement**
+
+   La question n'est pas tout à fait clair, si on parle des 3 fichiers "docker inspect" alors :
+
+   Les résultats des logs du docker inspect ressemble beaucoup à du langange decriptif et en particulier à du JSON. On peut voir qu'il contient un tableau de différents objets (Exemple : le premier objet contient l'ID du container, sa date de création, etc...). On peut voir qu'il contient énormément de champs vide ou NULL, il serait peut-être intéressant de ne pas tous garder (inspect permet de configurer le format de ce qu'il renvoie grâce à `--format`).
+
+   Si on parle des fichiers de configuration alors :
+
+   On peut voir que seul le dernier container à avoir rejoint le cluster est affiché, les autres ont été écrasé. Il y a peut-être un moyen de faire en sorte qu'ils appondent au lieu d'écraser.
 
 ## Task 5 - Generate a new load balancer configuration when membership changes
 
