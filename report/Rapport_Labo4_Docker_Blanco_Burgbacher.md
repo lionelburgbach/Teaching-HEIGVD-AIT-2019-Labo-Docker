@@ -133,7 +133,13 @@ Dans cette étape, on crée un template pour ajouter dynamiquement de nouveaux s
 
 #### **Deliverables 4**
 
-1. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+1. Comme nous avons pu le voir dans le cours (chap 3 - slide 49), pour chaque commande RUN, ADD ou COPY utilisées, une nouvelle couche est créé. Il est donc bien plus intéressant de combiner les différentes commandes pour avoir le moins de couches (inutiles) possible. La solution suivante `RUN command 1 && command 2 && command 3` est donc plus intéressante. 
+
+   Nous avons aussi vu qu'il faut supprimer la liste des partages du gestionnaire de partage (celle qui sert à faire update) parce que nous n'allons pas faire d'update dans une image mais simplement changer d'image avec une version plus récente.
+
+   Pour éviter de rebuild à chaque fois pour chaque ajout, on pourrait imaginer avoir des "images intermédiaire" et plusieurs dockerfile. Comme ça on "rebuilderai" que les parties ajoutées([source](https://www.quora.com/How-do-I-stop-rebuilding-a-docker-image-every-time-I-change-Dockerfile)).
+
+   Lien à propos du squashing  [ici](https://medium.com/tunaiku-tech/squasing-docker-images-dcd5bea8cf09) & du flattening [ici](https://tuhrig.de/flatten-a-docker-container-or-image/) les deux permettent de réduire la taille d'une image (Exemple : en réduisant le nombre de couche ou en ne gardant pas l'historique des images). `--squash` va faire un nouveau build en une seule couche([source](https://docs.docker.com/engine/reference/commandline/image_build/)).
 
 2. <span style='color:red'>REPONDRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
 
@@ -212,6 +218,10 @@ Finalement dans cette étape, on va modifier le script de "lancement" de notre H
    Finalement un screen du docker ps (une fois après avoir supprimer le serveur deux et en ayant essayé de le rajouter une nouvelle fois).
 
    <img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_6_dockerPs.png"  />
+   
+2. **Discussion du résultat final**
+
+   Le résultat final est assez intéressant bien que pas parfait. En effet, nous arrivons dans les grandes lignes à ce que nous voulions faire au début du laboratoire. Nous pourrions l'améliorer en essayant de réduire le delay du HAProxy pour "reconnaitre" (durant l'ajout et la suppression) les serveurs. Il faudrait aussi régler le fait que les serveurs ne prennent pas les noms qu'on leur donne mais le début de leur hash.
 
 
 
