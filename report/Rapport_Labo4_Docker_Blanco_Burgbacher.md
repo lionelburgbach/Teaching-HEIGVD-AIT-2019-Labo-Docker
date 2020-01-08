@@ -24,11 +24,11 @@ Actuellement, pour ajouter un nouveau "webapp container", il faudrait, après l'
 
 Il faut aussi modifier le docker-compose.yml pour y ajouter l'infrastructure. On ajoute le container avec une troisième web app.
 
-<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_m2_2.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_M2_2.png"  />
 
 Il faut aussi ajouter le lien de connexion entre le HAProxy et le nouveau container
 
-<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_m2_3.png"  />
+<img src="https://github.com/lionelburgbach/Teaching-HEIGVD-AIT-2019-Labo-Docker/blob/master/report/Images/Task_0_M2_3.png"  />
 
 ### M3 : Based on your previous answers, you have detected some issues in the current solution. Now propose a better approach at a high level.
 
